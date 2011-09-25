@@ -31,7 +31,7 @@ foreach my $command ( @{$commands} ) {
 my $count = 0;
 foreach my $command ( @{$commands} ) {
 
-  print $command->{'command'}, "\n"; 
+  # print $command->{'command'}, "\n"; 
 	$count++;
 	
 	# Sort the commands we wat to list under "See also"
@@ -45,5 +45,13 @@ foreach my $command ( @{$commands} ) {
     || die $template->error();
 	
 }
+
+# Now do koha-create
+my $vars = {
+  'commands'   => \@{$commands},
+  'categories' => \%categories,
+};
+$template->process('koha-common.tt', $vars, "output/koha-common.xml") 
+  || die $template->error();
 
 print "$count commands processed\n";

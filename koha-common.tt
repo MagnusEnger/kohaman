@@ -1,0 +1,61 @@
+<article xmlns='http://docbook.org/ns/docbook'>
+<title>koha-common</title>
+<info>
+<productname>Koha</productname> is the first free software library automation package.
+<author>
+  <orgname>The Koha Communnity</orgname>
+  <uri>http://koha-community.org/</uri>
+</author>
+</info>
+
+<refentry xml:id="koha-common">
+
+  <refmeta>
+    <refentrytitle>koha-common</refentrytitle>
+    <manvolnum>8</manvolnum>
+  </refmeta>
+
+  <refnamediv>
+    <refname>koha-common</refname>
+    <refpurpose>Create and manage Koha instances.</refpurpose>
+    <refclass>UNIX/Linux</refclass>
+  </refnamediv>
+
+  <refsect1><title>Description</title>
+    <para>koha-common provides a number of scripts for creating and administering Koha instances. It is meant for sites that provide Koha hosting, and serves several sites from the same host.</para>
+  </refsect1>
+
+  <refsect1><title>Commands</title>
+    <para>The following commands are available after when koha-common has been installed. See individual manual pages for each command for optios and other details related to their usage.</para>
+[% FOREACH category IN [ "Administer instances", "Database-related", "Zebra-related", "E-mail", "Misc", "Utilities" ] -%]
+
+    <refsect2><title>[% category %]</title>
+    <variablelist>
+[% FOREACH command IN commands -%]
+[% IF category == command.category -%]
+
+      <varlistentry>
+        <term><option>[% command.command %]</option></term>
+        <listitem>
+          <para>[% command.description %]</para>
+        </listitem>
+      </varlistentry>
+[% END -%]
+[% END -%]
+    </variablelist>
+    </refsect2>
+[% END -%]
+  </refsect1>
+  
+  <refsect1><title>Bugs</title>
+  <para>The scripts are a bit fragile. If something goes wrong, they do not clean up after themselves.</para>
+  <para>Bugs can be reported here: <uri>http://bugs.koha-community.org/bugzilla3/</uri></para>
+  </refsect1>
+
+  <refsect1><title>About Koha</title>
+  <para>Koha is the first free software library automation package. In use worldwide, its development is steered by a growing community of users collaborating to achieve their technology goals. Koha’s feature set continues to evolve and expand to meet the needs of its user base.</para>
+  </refsect1>
+
+</refentry>
+
+</article>
