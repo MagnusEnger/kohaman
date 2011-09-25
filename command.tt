@@ -27,17 +27,73 @@
     </cmdsynopsis>
   </refsynopsisdiv>
 
+[%- IF c.command == "koha-list" %]  
+  <refsect1><title>Options</title>
+  <para>The filtering options can be combined, and you probably want to do this (except --email and --noemail, that's just silly.)</para>
+  <variablelist> 
+    <varlistentry>
+      <term><option>--enabled</option></term>
+      <listitem>
+        <para>Only show instances that are enabled.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><option>--email</option></term>
+      <listitem>
+        <para>Only show instances that have email enabled.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><option>--noemail</option></term>
+      <listitem>
+        <para>Only show instances that do not have email enabled.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><option>-h</option></term>
+      <listitem>
+        <para>This help.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  </refsect1>
+[% END -%]
+[%- IF c.command == "koha-rebuild-zebra" %]  
+  <refsect1><title>Options</title>
+  <variablelist> 
+    <varlistentry>
+      <term><option>-u, --usmarc</option></term>
+      <listitem>
+        <para>Runs the process as USMARC rather than the default of MARCXML.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><option>-f, --full</option></term>
+      <listitem>
+        <para>Does a reindex of the whole collection.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><option>-...</option></term>
+      <listitem>
+        <para>Anything else is passed directly to rebuild_zebra. This is useful in particular for -v.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  </refsect1>
+[% END -%]
+
   <refsect1><title>Description</title>
   <para>[% c.description %]</para>
   </refsect1>
   
   <refsect1><title>See also</title>
   <simplelist type="inline">
-    [% FOREACH command IN so -%]
-      [% IF command != c.command %]
-      <member><command>[% command %](8)</command></member>
-      [% END %]
-    [% END %]
+[% FOREACH command IN so -%]
+[%- IF command != c.command -%]
+    <member><command>[% command %](8)</command></member>
+[% END -%]
+[%- END -%]
   </simplelist>
   </refsect1>
   
