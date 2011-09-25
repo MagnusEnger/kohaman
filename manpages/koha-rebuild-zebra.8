@@ -1,0 +1,60 @@
+'\" t
+.\"     Title: koha-rebuild-zebra
+.\"    Author: 
+.\" Generator: DocBook XSL Stylesheets v1.75.2 <http://docbook.sf.net/>
+.\"      Date: 09/25/2011
+.\"    Manual: koha-rebuild-zebra
+.\"    Source: Koha
+.\"  Language: English
+.\"
+.TH "KOHA\-REBUILD\-ZEBRA" "8" "09/25/2011" "Koha" "koha-rebuild-zebra"
+.\" -----------------------------------------------------------------
+.\" * Define some portability stuff
+.\" -----------------------------------------------------------------
+.\" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.\" http://bugs.debian.org/507673
+.\" http://lists.gnu.org/archive/html/groff/2009-02/msg00013.html
+.\" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.ie \n(.g .ds Aq \(aq
+.el       .ds Aq '
+.\" -----------------------------------------------------------------
+.\" * set default formatting
+.\" -----------------------------------------------------------------
+.\" disable hyphenation
+.nh
+.\" disable justification (adjust text to left margin only)
+.ad l
+.\" -----------------------------------------------------------------
+.\" * MAIN CONTENT STARTS HERE *
+.\" -----------------------------------------------------------------
+.SH "NAME"
+koha-rebuild-zebra \- Rebuild the Zebra database for a Koha instance\&.
+.SH "SYNOPSIS"
+.HP \w'\fBkoha\-rebuild\-zebra\fR\ 'u
+\fBkoha\-rebuild\-zebra\fR [\fB\-u\fR|\fB\-\-usmarc\fR] [\fB\-f\fR|\fB\-\-full\fR] [\fB\&.\&.\&.\fR] {\fIinstancename\fR...}
+.SH "OPTIONS"
+.PP
+\fB\-u, \-\-usmarc\fR
+.RS 4
+Runs the process as USMARC rather than the default of MARCXML\&.
+.RE
+.PP
+\fB\-f, \-\-full\fR
+.RS 4
+Does a reindex of the whole collection\&.
+.RE
+.PP
+\fB\-\&.\&.\&.\fR
+.RS 4
+Anything else is passed directly to rebuild_zebra\&. This is useful in particular for \-v\&.
+.RE
+.SH "DESCRIPTION"
+.PP
+Rebuild the Zebra database for a Koha instance\&.
+.SH "SEE ALSO"
+\fBkoha\-restart\-zebra(8)\fR, \fBkoha\-start\-zebra(8)\fR, \fBkoha\-stop\-zebra(8)\fR
+.SH "AUTHOR"
+.br
+.RS 4
+Author.
+.RE
