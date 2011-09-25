@@ -6,6 +6,7 @@ use encoding 'utf8';
 use strict;
 
 my $inputfile = 'kohaman.txt';
+my %categories;
 
 # Read the input file
 my $csv = Text::CSV->new ( { 
@@ -21,14 +22,24 @@ close $fh;
 # Set up TT
 my $template = Template->new();
 
+# Build a structure for categories
+foreach my $command ( @{$commands} ) {
+  push @{$categories{$command->{'category'}}}, $command->{'command'};
+}
+
+# Output pages for individual commands
 my $count = 0;
 foreach my $command ( @{$commands} ) {
 
   print $command->{'command'}, "\n"; 
 	$count++;
 	
+	# Sort the commands we wat to list under "See also"
+	my @similar = sort @{$categories{$command->{'category'}}};
+	
 	my $vars = {
-    'c' => $command,
+    'c'  => $command,
+    'so' => \@similar,
   };
   $template->process('command.tt', $vars, "output/$command->{'command'}.xml") 
     || die $template->error();

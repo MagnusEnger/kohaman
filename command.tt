@@ -33,7 +33,11 @@
   
   <refsect1><title>See also</title>
   <simplelist type="inline">
-    <member><command>koha-remove(8)</command></member>
+    [% FOREACH command IN so -%]
+      [% IF command != c.command %]
+      <member><command>[% command %](8)</command></member>
+      [% END %]
+    [% END %]
   </simplelist>
   </refsect1>
   
