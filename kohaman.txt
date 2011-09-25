@@ -1,3 +1,4 @@
+"category","command","description","synopsis"
 "Administer instances","koha-disable","Disable a Koha instance.","<command>koha-disable</command> <arg choice="req"  rep="norepeat"><replaceable>instancename</replaceable></arg>"
 "Administer instances","koha-enable","Enable a Koha instance. New instances are enabled by default. You only need this command if you have previously disabled a site with koha-disable.","<command>koha-enable</command> <arg choice="req" rep="norepeat"><replaceable>instancename</replaceable></arg>"
 "Administer instances","koha-restore","Restore a Koha site from a dump (from koha-dump).","<command>koha-restore</command> <arg choice="req"><option>sqldump</option></arg> <arg choice="req"><option>configdump</option></arg>"
