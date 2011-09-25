@@ -1,0 +1,18 @@
+Remember to put these in by hand after the pages have been generated
+
+* koha-rebuild-zebra
+
+  -u: runs the process as USMARC rather than the default of MARCXML
+  -f: does a reindex of the whole collection
+  -...: anything else is passed directly to rebuild_zebra. This is useful in particular for -v. 
+
+* koha-list
+
+  Options:
+   --enabled       only show instances that are enabled
+   --email         only show instances that have email enabled
+   --noemail       only show instances that do not have email enabled
+   -h              this help
+
+  The filtering options can be combined, and you probably want to do this
+  (except --email and --noemail, that's just silly.)
